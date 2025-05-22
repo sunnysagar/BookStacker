@@ -15,3 +15,20 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
 - Authentication: JWT (JSON Web Tokens)
 - Environment Config: dotenv
 - Pagination & Filtering: Built-in query options
+
+##  Project Structure
+bash
+```
+  booknest-api/
+│
+├── controllers/       # Route controllers (logic)
+├── services/          # Business logic
+├── models/            # Mongoose schemas
+├── routes/            # Route definitions
+├── middleware/        # JWT auth, error handlers
+├── config/            # DB and env config
+├── .env               # Secret keys & config
+├── server.js          # App entry point
+└── README.md
+
+```
