@@ -56,4 +56,18 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
   ```
   http://localhost:5000
   ```
+## Endpoints
+### 🔐 Authentication Endpoints
+1. /signup – Register
+   ``` 
+   POST /signup
+   Content-Type: application/json
+   {
+   "name": "Sunny",
+   "email": "sunny@example.com",
+   "password": "securepassword"
+   }
+
+   ```
+
 
