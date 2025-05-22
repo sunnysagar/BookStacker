@@ -33,33 +33,33 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
 ```
 ## 🛠️ Setup Instructions
 1. Clone the repo
-   ```
-   git clone https://github.com/BookStacker/booknest-api.git
-   cd booknest-api
+   ```bash
+   git clone https://github.com/sunnysagar/BookStacker.git
+   cd BookStacker
    ```
 2. Install dependencies
-   ```
+   ```bash
    npm install
    ```
 4. Create a .env file
-   ```
+   ```.env
    PORT=5000
    MONGO_URI=your_mongodb_uri
    JWT_SECRET=your_jwt_secret_key
    
    ```
 5. Start Server
-   ```
+   ```bash
    node server.js
    ```
   Your API will be running at
-  ```
+  ```bash
   http://localhost:5000
   ```
 ## Endpoints
 ### 🔐 Authentication Endpoints
 1. /signup – Register
-   ``` 
+   ```http 
    POST /signup
    Content-Type: application/json
    {
@@ -69,5 +69,61 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
    }
 
    ```
+2. Login and Get JWT
+   ```http
+   POST /login
+   {
+   "email": "sunny@example.com",
+   "password": "securepassword"
+   }
+   ```
+### 📚 Book Endpoints
+1. POST /books – Add Book (Auth Required)
+```http
+POST /books
+Authorization: Bearer <JWT>
+{
+  "title": "Clean Code",
+  "author": "Robert C. Martin",
+  "genre": "Programming"
+}
+```
+2.  GET /books – List Books (pagination, filter)
+```http
+GET /books?page=1&limit=10&author=Robert&genre=Programming
+```
+ 3. GET /books/:id – Book Details with Avg Rating + Reviews
+```http
+GET /books/abc123
+```
+### ✍️ Review Endpoints
+1.  POST /books/:id/reviews (One review per user per book)
+```http
+POST /books/abc123/reviews
+Authorization: Bearer <JWT>
+{
+  "rating": 4,
+  "comment": "Great book!"
+}
+```
+2. PUT /reviews/:id – Update Own Review
+```http
+PUT /reviews/xyz456
+Authorization: Bearer <JWT>
+{
+  "rating": 5,
+  "comment": "Actually, it was amazing!"
+}
+```
+3. DELETE /reviews/:id – Delete Own Review
+```http
+DELETE /reviews/xyz456
+Authorization: Bearer <JWT>
+```
+### 🔍 /search – Search Books by Title or Author
+```http
+GET /search?q=clean
+```
+ 
 
 
