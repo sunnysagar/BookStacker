@@ -1,1 +1,2 @@
-# BookStacker
+# Book Stacker - Book Review System
+A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to manage books and post reviews. Authenticated users can add books, post reviews, and manage their own content. This project demonstrates secure backend development, clean modular code, and well-designed API architecture.
