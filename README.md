@@ -124,6 +124,33 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
   ```http
   GET /search?q=clean
   ```
+## 🗂️ MongoDB Schema (Simple Overview)
+1. User
+```js
+{
+  name: String,
+  email: { type: String, unique: true },
+  password: String
+}
+```
+2. Book
+```js
+{
+  title: String,
+  author: String,
+  genre: String,
+  reviews: [ObjectId], // References to Review
+}
+```
+3. Review
+```js
+{
+  user: ObjectId,
+  book: ObjectId,
+  rating: Number,
+  comment: String
+}
+```
  
 
 
