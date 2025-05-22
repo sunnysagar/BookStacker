@@ -79,51 +79,51 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
    ```
 ### 📚 Book Endpoints
 1. POST /books – Add Book (Auth Required)
-```http
-POST /books
-Authorization: Bearer <JWT>
-{
-  "title": "Clean Code",
-  "author": "Robert C. Martin",
-  "genre": "Programming"
-}
-```
+    ```http
+    POST /books
+    Authorization: Bearer <JWT>
+    {
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "genre": "Programming"
+    }
+    ```
 2.  GET /books – List Books (pagination, filter)
-```http
-GET /books?page=1&limit=10&author=Robert&genre=Programming
-```
+    ```http
+    GET /books?page=1&limit=10&author=Robert&genre=Programming
+    ```
  3. GET /books/:id – Book Details with Avg Rating + Reviews
-```http
-GET /books/abc123
-```
+    ```http
+    GET /books/abc123
+    ```
 ### ✍️ Review Endpoints
 1.  POST /books/:id/reviews (One review per user per book)
-```http
-POST /books/abc123/reviews
-Authorization: Bearer <JWT>
-{
-  "rating": 4,
-  "comment": "Great book!"
-}
-```
+    ```http
+    POST /books/abc123/reviews
+    Authorization: Bearer <JWT>
+    {
+    "rating": 4,
+    "comment": "Great book!"
+    }
+    ```
 2. PUT /reviews/:id – Update Own Review
-```http
-PUT /reviews/xyz456
-Authorization: Bearer <JWT>
-{
-  "rating": 5,
-  "comment": "Actually, it was amazing!"
-}
-```
+    ```http
+    PUT /reviews/xyz456
+    Authorization: Bearer <JWT>
+    {
+    "rating": 5,
+    "comment": "Actually, it was amazing!"
+    }
+    ```
 3. DELETE /reviews/:id – Delete Own Review
-```http
-DELETE /reviews/xyz456
-Authorization: Bearer <JWT>
-```
+    ```http
+    DELETE /reviews/xyz456
+    Authorization: Bearer <JWT>
+    ```
 ### 🔍 /search – Search Books by Title or Author
-```http
-GET /search?q=clean
-```
+    ```http
+    GET /search?q=clean
+    ```
  
 
 
