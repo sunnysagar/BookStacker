@@ -121,9 +121,9 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
     Authorization: Bearer <JWT>
     ```
 ### 🔍 /search – Search Books by Title or Author
-    ```http
-    GET /search?q=clean
-    ```
+  ```http
+  GET /search?q=clean
+  ```
  
 
 
