@@ -1,3 +1,18 @@
+/**
+ * Main server file for the Book-Review application.
+ * 
+ * - Loads environment variables using dotenv.
+ * - Initializes Express application.
+ * - Applies CORS and JSON body parsing middleware.
+ * - Sets up API routes for authentication, books, and reviews.
+ * - Connects to MongoDB using Mongoose and starts the server on the specified port.
+ * 
+ * Environment Variables:
+ * @env {string} MONGODB_URI - MongoDB connection string.
+ * @env {string|number} PORT - Port number for the server to listen on.
+ * 
+ * @module server
+ */
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
