@@ -56,11 +56,28 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
   ```bash
   http://localhost:5000
   ```
-## Endpoints
+## 🔑 API Endpoints
+```POST /api/auth/signup```
+
+```POST /api/auth/login```
+
+```POST /api/books (auth)```
+
+```GET /api/books```
+
+```GET /api/books/:id```
+
+```POST /api/books/:id/reviews (auth)```
+
+```PUT /api/reviews/:id (auth)```
+
+```DELETE /api/reviews/:id (auth)```
+
+```GET /api/books/search?q=title```
 ### 🔐 Authentication Endpoints
-1. /signup – Register
+1. Signup – Register
    ```http 
-   POST /signup
+   POST /auth/signup
    Content-Type: application/json
    {
    "name": "Sunny",
@@ -71,7 +88,7 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
    ```
 2. Login and Get JWT
    ```http
-   POST /login
+   POST /auth/login
    {
    "email": "sunny@example.com",
    "password": "securepassword"
@@ -151,6 +168,67 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
   comment: String
 }
 ```
- 
+## 🗂️ Database Schema Design
+
+### 🔐 User
+
+| Field      | Type      | Description             |
+|------------|-----------|-------------------------|
+| `_id`      | ObjectId  | Primary key             |
+| `name`     | String    | User’s full name        |
+| `email`    | String    | Unique email            |
+| `password` | String    | Hashed password         |
+| `createdAt`| Date      | Timestamp (auto-added)  |
+
+---
+
+### 📚 Book
+
+| Field      | Type      | Description             |
+|------------|-----------|-------------------------|
+| `_id`      | ObjectId  | Primary key             |
+| `title`    | String    | Title of the book       |
+| `author`   | String    | Author's name           |
+| `genre`    | String    | Book genre              |
+| `reviews`  | ObjectId    | Reference to the Review      |
+| `createdAt`| Date      | Timestamp (auto-added)  |
+
+---
+
+### 📝 Review
+
+| Field      | Type      | Description                       |
+|------------|-----------|-----------------------------------|
+| `_id`      | ObjectId  | Primary key                       |
+| `user`     | ObjectId  | Reference to the User (`_id`)     |
+| `book`     | ObjectId  | Reference to the Book (`_id`)     |
+| `rating`   | Number    | Rating (e.g., 1 to 5)             |
+| `comment`  | String    | Review comment                    |
+| `createdAt`| Date      | Timestamp                         |
+
+ ### 🧩 Relationships
+ - A User can write many Reviews, but only one review per Book.
+ - A Book can have many Reviews.
+ - Each Review belongs to one User and one Book.
+ - 
+## ⚙️ Design Decisions & Assumptions
+### Design Decisions
+- **Modular Structure**: Separated controllers (handle requests) and services (handle logic) for cleaner code.
+- **JWT Authentication**: Protected routes require JWT in the Authorization header.
+- **One Review per Book per User**: Enforced to maintain review uniqueness.
+- **Pagination**: Default limit = 10 in book and review listings.
+- **Search**: Case-insensitive partial match for title and author using regex.
+- **Protected Routes**: Only logged-in users can add books or reviews.
+
+### 🤔 Assumptions
+- All users are treated equally (no roles like admin).
+- Users can update or delete only their own reviews.
+- Basic validation is handled via Mongoose.
+- No advanced features like likes, replies, or media for now.
+
+## 🧑‍💻 Author
+### Sunny Sagar
+
+
 
 
