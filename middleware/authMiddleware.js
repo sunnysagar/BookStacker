@@ -1,3 +1,10 @@
+/**
+ * Express middleware to authenticate requests using JWT.
+ *
+ * Checks for the presence of an Authorization header, verifies the JWT token,
+ * and attaches the decoded user information to the request object.
+ * If the token is missing or invalid, responds with a 401 Unauthorized error.
+ */
 const jwt = require("jsonwebtoken");
 
 module.exports = (req, res, next) => {
@@ -10,6 +17,6 @@ module.exports = (req, res, next) => {
     req.user = decoded;
     next();
   } catch (err) {
-    return res.status(401).json({ message: "Invalid token" });
+    return res.status(401).json({ message: "Invalid token", err });
   }
 };

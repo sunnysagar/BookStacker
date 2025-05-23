@@ -1,3 +1,27 @@
+/**
+ * Controller for adding a new book.
+ * @async
+ * @function addBook
+ */
+
+/**
+ * Controller for retrieving a list of books.
+ * @async
+ * @function getBooks
+ */
+
+/**
+ * Controller for retrieving details of a specific book by ID.
+ * @async
+ * @function getBookDetails
+ */
+
+/**
+ * Controller for searching books by query string.
+ * @async
+ * @function searchBooks
+ */
+
 const {
   addBookService,
   getBooksService,
@@ -28,7 +52,7 @@ exports.getBookDetails = async (req, res) => {
     const result = await getBookDetailsService(req.params.id);
     res.json(result);
   } catch (err) {
-    res.status(404).json({ message: "Book not found" });
+    res.status(404).json({ message: "Book not found", err });
   }
 };
 

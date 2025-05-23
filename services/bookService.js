@@ -1,3 +1,27 @@
+/**
+ * Add a new book.
+ * @param {Object} bookData
+ * @returns {Promise<Object>}
+ */
+
+/**
+ * Get books with optional filters and pagination.
+ * @param {Object} params
+ * @returns {Promise<Array<Object>>}
+ */
+
+/**
+ * Get book details by ID, including average rating and reviews.
+ * @param {string} bookId
+ * @returns {Promise<Object>}
+ */
+
+/**
+ * Search books by title or author.
+ * @param {string} query
+ * @returns {Promise<Array<Object>>}
+ */
+
 const Book = require("../models/Book")
 const Review = require("../models/Review")
 

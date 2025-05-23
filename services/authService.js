@@ -1,3 +1,14 @@
+/**
+ * Registers a new user with hashed password.
+ * @param {Object} params - User details.
+ * @returns {Promise<void>}
+ */
+
+/**
+ * Authenticates user and returns JWT token.
+ * @param {Object} params - Login details.
+ * @returns {Promise<string>}
+ */
 const User = require("../models/User")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")

@@ -1,4 +1,30 @@
-// importing from its service
+/**
+ * Controller for handling review-related operations.
+ * 
+ * @module controllers/reviewController
+ */
+
+ /**
+  * Adds a new review for a book.
+  *
+  * @async
+  * @function addReview
+  */
+
+ /**
+  * Updates an existing review for a book.
+  *
+  * @async
+  * @function updateReview
+  */
+
+ /**
+  * Deletes an existing review for a book.
+  *
+  * @async
+  * @function deleteReview
+  */
+
 const {
   addReviewService,
   updateReviewService,
