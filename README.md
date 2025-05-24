@@ -189,7 +189,6 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
 | `title`    | String    | Title of the book       |
 | `author`   | String    | Author's name           |
 | `genre`    | String    | Book genre              |
-| `reviews`  | ObjectId    | Reference to the Review      |
 
 ---
 
