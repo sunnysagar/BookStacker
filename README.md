@@ -178,7 +178,6 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
 | `name`     | String    | User’s full name        |
 | `email`    | String    | Unique email            |
 | `password` | String    | Hashed password         |
-| `createdAt`| Date      | Timestamp (auto-added)  |
 
 ---
 
@@ -191,7 +190,6 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
 | `author`   | String    | Author's name           |
 | `genre`    | String    | Book genre              |
 | `reviews`  | ObjectId    | Reference to the Review      |
-| `createdAt`| Date      | Timestamp (auto-added)  |
 
 ---
 
@@ -204,7 +202,6 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
 | `book`     | ObjectId  | Reference to the Book (`_id`)     |
 | `rating`   | Number    | Rating (e.g., 1 to 5)             |
 | `comment`  | String    | Review comment                    |
-| `createdAt`| Date      | Timestamp                         |
 
  ### 🧩 Relationships
  - A User can write many Reviews, but only one review per Book.
