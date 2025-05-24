@@ -170,6 +170,11 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
 ```
 ## 🗂️ Database Schema Design
 
+📌 **Key Entities:**
+- **User:** Stores user credentials and basic details.
+- **Book:** Contains book information like title, author, and genre.
+- **Review:** Connects a user and a book through a one-to-one relationship per book, with a rating and comment.
+
 ### 🔐 User
 
 | Field      | Type      | Description             |
@@ -201,6 +206,14 @@ A RESTful API built using Node.js, Express.js, and MongoDB, allowing users to ma
 | `book`     | ObjectId  | Reference to the Book (`_id`)     |
 | `rating`   | Number    | Rating (e.g., 1 to 5)             |
 | `comment`  | String    | Review comment                    |
+
+### 🧩 ER Diagram
+
+The following diagram represents the core entities and their relationships in the Book Review API system.
+
+📎 **ER Diagram Link:**  
+[📄 View ER Diagram on Google Drive](https://drive.google.com/file/d/11tZGQJfvTX0YH3Gr4wODIDqDd7NVjkeK/view?usp=sharing)
+
 
  ### 🧩 Relationships
  - A User can write many Reviews, but only one review per Book.
