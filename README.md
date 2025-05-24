@@ -219,7 +219,7 @@ The following diagram represents the core entities and their relationships in th
  - A User can write many Reviews, but only one review per Book.
  - A Book can have many Reviews.
  - Each Review belongs to one User and one Book.
- - 
+   
 ## ⚙️ Design Decisions & Assumptions
 ### Design Decisions
 - **Modular Structure**: Separated controllers (handle requests) and services (handle logic) for cleaner code.
